@@ -1,0 +1,5 @@
+*.o
+*.out
+*.exe
+seqalign
+.DS_Store
