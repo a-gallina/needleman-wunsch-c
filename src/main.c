@@ -10,11 +10,11 @@
 
 int main(){
 
-//char seq1[] = "ATGCGTACGTAGCTCAGCTAGCGATCGTAC";
-//char seq2[] = "ATGCGTCCGTAGCTACGCAGCGATCGCAT";
+char seq1[] = "ATGCGTACGTAGCTCAGCTAGCGATCGTAC";
+char seq2[] = "ATGCGTCCGTAGCTACGCAGCGATCGCAT";
 
-char seq1[] = "AGACT";
-char seq2[] = "AGCT";
+//char seq1[] = "AGACT";
+//char seq2[] = "AGCT";
 
 int n = strlen(seq1);
 int m = strlen(seq2);
@@ -24,19 +24,35 @@ int direction[n+1][m+1];
 
 scoring(n, m, seq1, seq2, matrix, direction);
 
+/*for(int i = 0; i < n + 1; i++){
+    for(int j = 0; j < m + 1; j++){
+        printf("%d ",matrix[i][j] );
+    }
+    printf("\n");
+}
+printf("\n");
+
+for(int i = 0; i < n + 1; i++){
+    for(int j = 0; j < m + 1; j++){
+        printf("%d ",direction[i][j] );
+    }
+    printf("\n");
+}*/
+
 int max;
 if(n > m) max = n;
 else max = m;
 
-char inv_result[3][max];
+char result[3][max];
 
-traceback(n, m, max, seq1, seq2, direction, inv_result);
+traceback(n, m, max, seq1, seq2, direction, result);
 
 //stampa risultato
 for(int i = 0; i < 3; i++){
-    for(int j = max - 1; j >= 0; j--){
-        printf("%C", inv_result[i][j]);
+    for(int j = 0; j < max; j++){
+        printf("%3C", result[i][j]);
     }
+    printf("\n");
 }
 
 return 0;

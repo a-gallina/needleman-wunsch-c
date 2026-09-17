@@ -9,11 +9,13 @@ void scoring(int n, int m, char *seq1, char *seq2, int matrix[n+1][m+1], int dir
     matrix[0][0] = 0;
 
     for(int i = 0; i < n + 1; i++){
-        matrix[0][i] = i * gap_penalty;
+        matrix[i][0] = i * gap_penalty;
+        direction[i][0] = 0; 
     }
 
     for(int j = 0; j < m + 1; j++){
-        matrix[j][0] = j * gap_penalty;
+        matrix[0][j] = j * gap_penalty;
+        direction[0][j] = 0;
     }
 
     for(int i = 1; i < n + 1; i++){
