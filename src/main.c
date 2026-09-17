@@ -28,9 +28,9 @@ int max;
 if(n > m) max = n;
 else max = m;
 
-char inv_result[2][max];
+char inv_result[3][max];
 
-traceback(n, m, seq1, seq2, direction, inv_result);
+traceback(n, m, max, seq1, seq2, direction, inv_result);
 
 //stampa risultato
 for(int i = 0; i < 3; i++){
